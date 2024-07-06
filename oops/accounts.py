@@ -4,15 +4,26 @@ class Accounts:
     def __init__(self, name, balance):
         self.name = name
         self.balance = balance
-        print("Account created for", self.name)
+        print("Account created for", self.name, "with balance", self.balance)
 
     def deposit(self, amount):
-        self.balance += amount
-        return "Your updated balance for acc {} is {}".format(self.name, self.balance)
+        if amount > 0:
+            self.balance += amount
+            self.show_balance()
+
+    def withdraw(self, amount):
+        if self.balance >= amount > 0:
+            self.balance -= amount
+            self.show_balance()
+        else:
+            print("Amount above account balance")
+
+    def show_balance(self):
+        print("Your balance is {}".format(self.balance))
 
 
-chirag = Accounts("Chirag", 100000)
-print(chirag.balance)
+if __name__ == "__main__":
+    chirag = Accounts("Bangera", 0)
+    chirag.deposit(1000000)
 
-print(chirag.deposit(5000))
-print(chirag.balance)
+    chirag.withdraw(1000001)
