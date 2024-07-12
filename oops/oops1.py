@@ -39,8 +39,8 @@ print(milton.on)
 Kettle.switch_on(milton)
 print(milton.on)
 
-milton.power = 2.3
-print(milton.power)
+milton.power = 2.3  # type: ignore
+print(milton.power)  # type: ignore
 print("switching to atomic power")
 Kettle.power_source = "atomic"
 milton.power_source = "miltion not atomic"
@@ -50,3 +50,9 @@ print(prestige.power_source)
 print(Kettle.__dict__)
 print(milton.__dict__)
 print(prestige.__dict__)
+
+
+tups = [("sss", 123), ("asd", 234), ("sdfg", 78)]
+
+for date, amount in tups:
+    print(date, amount)
